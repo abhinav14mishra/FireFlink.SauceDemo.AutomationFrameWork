@@ -13,6 +13,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import sauceDemo.objectRepository.InventoryPage;
 import sauceDemo.objectRepository.LoginPage;
@@ -69,11 +70,12 @@ public class BaseClass {
 	@BeforeMethod
 	public void beforeMethodConfiguration() throws IOException {
 
-		String USERNAME = fU.readDataFromPropertyFile("username");
+		String USERNAME = System.getProperty("username");
+
 		String PASSWORD = fU.readDataFromPropertyFile("password");
 
 		new LoginPage(driver).loginSauceDemo(USERNAME, PASSWORD);
-		System.out.println("===========Successfully Logined==========");
+		System.out.println("===========Successfully Logined via " + USERNAME + "==========");
 
 	}
 
