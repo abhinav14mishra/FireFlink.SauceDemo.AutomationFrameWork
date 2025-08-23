@@ -67,10 +67,9 @@ public class BaseClass {
 
 	}
 
+	@Parameters("username")
 	@BeforeMethod
-	public void beforeMethodConfiguration() throws IOException {
-
-		String USERNAME = System.getProperty("username");
+	public void beforeMethodConfiguration(String USERNAME) throws IOException {
 
 		String PASSWORD = fU.readDataFromPropertyFile("password");
 
