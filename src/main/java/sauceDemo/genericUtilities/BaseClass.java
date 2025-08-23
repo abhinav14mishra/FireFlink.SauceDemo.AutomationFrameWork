@@ -33,16 +33,10 @@ public class BaseClass {
 
 	}
 
-	@Parameters("browser")
 	@BeforeClass
-	public void beforeClassConfiguration(String browser) throws IOException {
+	public void beforeClassConfiguration() throws IOException {
 
-		String BROWSER;
-		if (browser != null && !browser.trim().isEmpty()) {
-			BROWSER = browser;
-		} else {
-			BROWSER = fU.readDataFromPropertyFile("browser");
-		}
+		String BROWSER = fU.readDataFromPropertyFile("browser");
 		String URL = fU.readDataFromPropertyFile("url");
 
 		if (BROWSER.equalsIgnoreCase("Chrome")) {
@@ -73,9 +67,10 @@ public class BaseClass {
 
 	}
 
-	@Parameters("username")
 	@BeforeMethod
-	public void beforeMethodConfiguration(String USERNAME) throws IOException {
+	public void beforeMethodConfiguration() throws IOException {
+
+		String USERNAME = fU.readDataFromPropertyFile("username");
 
 		String PASSWORD = fU.readDataFromPropertyFile("password");
 
