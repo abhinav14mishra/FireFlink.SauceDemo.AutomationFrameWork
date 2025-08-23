@@ -3,13 +3,17 @@ package practice;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import sauceDemo.genericUtilities.BaseClass;
 import sauceDemo.genericUtilities.FileUtility;
+import sauceDemo.genericUtilities.ListenersImplementation;
 import sauceDemo.objectRepository.CartPage;
 import sauceDemo.objectRepository.InventoryItemPage;
 import sauceDemo.objectRepository.InventoryPage;
+
+@Listeners(ListenersImplementation.class)
 
 public class VerifyProductTest extends BaseClass {
 
